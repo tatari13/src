@@ -1,0 +1,30 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+@inject ISessionManagerService sessionManager
+
+<MudThemeProvider @ref="@_mudThemeProvider" @bind-IsDarkMode="@_isDarkMode" Theme="_myCustomTheme"/>
+<MudPopoverProvider/>
+<MudDialogProvider/>
+<MudSnackbarProvider/>
+
+<PageTitle>LAPS-WebUI</PageTitle>
+
+<MudLayout>
+    <MudAppBar Elevation="1">
+        <MudText Typo="Typo.h5" Class="ml-3">LAPS WebUI</MudText>
+        <MudSpacer />
+        <MudTooltip Text="Toggle Dark Mode">
+            <MudIconButton Icon="@Icons.Material.Outlined.DarkMode" Color="Color.Inherit" OnClick="@((_) => ToggleDarkMode())" aria-label="Toggle Dark Mode" />
+        </MudTooltip>
+        @if (IsUserLoggedIn)
+        {
+            <MudTooltip Text="Logout">
+                <MudIconButton Icon="@Icons.Material.Filled.Logout" Color="Color.Inherit" Edge="Edge.End" OnClick="@Logout" aria-label="logout" />
+            </MudTooltip>
+                
+        }
+    </MudAppBar>
+    <MudMainContent>
+        @Body
+    </MudMainContent>
+</MudLayout>

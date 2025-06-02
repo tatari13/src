@@ -1,0 +1,58 @@
+@using MudBlazor
+@code {
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
+
+    [Parameter] public string Username { get; set; }
+    [Parameter] public string Target { get; set; }
+    [Parameter] public DateTime? DateFrom { get; set; }
+    [Parameter] public DateTime? DateTo { get; set; }
+
+    private string _username;
+    private string _target;
+    private DateTime? _dateFrom;
+    private DateTime? _dateTo;
+
+    protected override void OnInitialized()
+    {
+        _username = Username;
+        _target = Target;
+        _dateFrom = DateFrom;
+        _dateTo = DateTo;
+    }
+
+    private void Submit()
+    {
+        var result = new FilterResult
+        {
+            Username = _username,
+            Target = _target,
+            DateFrom = _dateFrom,
+            DateTo = _dateTo
+        };
+        MudDialog.Close(DialogResult.Ok(result));
+    }
+
+    private void Cancel() => MudDialog.Cancel();
+
+    public class FilterResult
+    {
+        public string Username { get; set; }
+        public string Target { get; set; }
+        public DateTime? DateFrom { get; set; }
+        public DateTime? DateTo { get; set; }
+    }
+}
+
+<MudDialog>
+    <DialogContent>
+        <MudText Typo="Typo.h6">Налаштувати фільтр</MudText>
+        <MudTextField Label="Ім’я користувача" @bind-Value="_username" FullWidth="true" />
+        <MudTextField Label="Ім’я комп'ютера" @bind-Value="_target" FullWidth="true" />
+        <MudDatePicker Label="Дата з" @bind-Date="_dateFrom" />
+        <MudDatePicker Label="Дата по" @bind-Date="_dateTo" />
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel" Color="Color.Secondary">Скасувати</MudButton>
+        <MudButton OnClick="Submit" Color="Color.Primary">Застосувати</MudButton>
+    </DialogActions>
+</MudDialog>

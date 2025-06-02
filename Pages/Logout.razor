@@ -1,0 +1,18 @@
+﻿@page "/logout"
+@inject ISessionManagerService SessionManager
+@inject NavigationManager NavigationManager
+
+
+<MudContainer Class="mt-16" MaxWidth="MaxWidth.Small">
+    <MudGrid Justify="Justify.Center">
+        <MudItem>
+                <MudStack Justify="Justify.Center">
+        <MudProgressCircular Class="ml-16" Size="Size.Large" Color="Color.Primary" Indeterminate="true" />
+        <MudText Typo="Typo.h5" Class="mt-3">
+            Logging you out...
+        </MudText>
+    </MudStack>
+        </MudItem>
+    </MudGrid>
+
+</MudContainer>

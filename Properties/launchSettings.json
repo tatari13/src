@@ -1,0 +1,41 @@
+{
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "publishAllPorts": true,
+      "useSSL": true
+    },
+    "LAPS-WebUI - K-SYS": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "Domains__0__Name": "ALEANA",
+        "Domains__0__Ldap__Server": "aleana.lan",
+        "Domains__0__Ldap__Port": "636",
+        "Domains__0__Ldap__UseSSL": "true",
+        "Domains__0__Ldap__SearchBase": "OU=TEST_LAPS,OU=Obukhiv,DC=aleana,DC=lan",
+        " Domains__0__Ldap__TrustAllCertificates": "true"
+      },
+      "applicationUrl": "https://localhost:7213;http://localhost:5213",
+      "dotnetRunMessages": true
+    }
+  },
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:46848",
+      "sslPort": 44370
+    }
+  }
+}

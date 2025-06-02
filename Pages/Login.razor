@@ -1,0 +1,39 @@
+﻿@page "/login"
+@inject NavigationManager NavigationManager
+@inject ISessionManagerService SessionManager
+
+<MudContainer MaxWidth="MaxWidth.Small" Class="mt-8">
+
+    <EditForm Model="@_loginRequest" OnValidSubmit="OnValidSubmitAsync">
+    <DataAnnotationsValidator/>
+    <MudPaper Class="pa-4">
+        <MudStack Spacing="4">
+            <MudStack>
+                <MudTextField Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Person" Label="Username" Immediate="true" @bind-Value="_loginRequest.Username" For="@(() => _loginRequest.Username)" aria-label="username"/>
+                <MudTextField Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Key" Label="Password" Immediate="true" Class="mt-3" @bind-Value="_loginRequest.Password" For="@(() => _loginRequest.Password)" InputType="InputType.Password" aria-label="password" />
+                <MudSelect Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Domain" T="string" Label="Domain" aria-label="domain" @bind-Value="_loginRequest.DomainName">
+                    @foreach(string domain in _domains)
+                    {
+                        <MudSelectItem Value="@domain" />
+                    }
+                </MudSelect>
+            </MudStack>
+                <MudLoadingButton @bind-Loading="_processing" LoadingAdornment="Adornment.Start" ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.Outlined.Login" aria-label="login">
+                    <ChildContent>
+                        Login
+                    </ChildContent>
+                    <LoadingContent>
+                        Logging in...
+                    </LoadingContent>
+                </MudLoadingButton>
+        </MudStack>
+    </MudPaper>
+
+    @if (!string.IsNullOrEmpty(_errorMessage))
+    {
+        <MudAlert Class="mt-5" Severity="Severity.Error" Variant="Variant.Outlined">@_errorMessage</MudAlert>
+    }
+
+    </EditForm>
+
+</MudContainer>

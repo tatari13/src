@@ -1,0 +1,28 @@
+@page "/audit"
+@inject IDialogService DialogService
+@inject IJSRuntime JSRuntime
+@inject AuditService AuditService
+
+<MudPaper Class="pa-4">
+    <MudStack Direction="Row" Justify="SpaceBetween" AlignItems="Center" Class="mb-2">
+        <MudText Typo="Typo.h5">Audit Log</MudText>
+        <MudMenu Icon="@Icons.Material.Filled.MoreVert" Dense="true">
+            <MudMenuItem OnClick="OpenFilterDialog">🔍 Налаштувати фільтр</MudMenuItem>
+            <MudMenuItem OnClick="ClearFilters">❌ Очистити фільтр</MudMenuItem>
+            <MudMenuItem OnClick="ExportToCsv">📄 Експорт у CSV</MudMenuItem>
+        </MudMenu>
+    </MudStack>
+
+    <MudTable Items="filteredEntries" Dense="true" Bordered="true" Striped="true" Hover="true">
+        <HeaderContent>
+            <MudTh>Username</MudTh>
+            <MudTh>Target</MudTh>
+            <MudTh>Date</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="Username">@context.Username</MudTd>
+            <MudTd DataLabel="Target">@context.Target</MudTd>
+            <MudTd DataLabel="Date">@context.Timestamp.ToString("dd.MM.yyyy HH:mm")</MudTd>
+        </RowTemplate>
+    </MudTable>
+</MudPaper>

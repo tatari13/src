@@ -1,0 +1,8 @@
+C:\Users\Administrator\Downloads\LAPS-WebUI-1.6.4\src\obj\Debug\net9.0\LAPS-WebUI.csproj.AssemblyReference.cache
+C:\Users\Administrator\Downloads\LAPS-WebUI-1.6.4\src\obj\Debug\net9.0\LAPS-WebUI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Downloads\LAPS-WebUI-1.6.4\src\obj\Debug\net9.0\LAPS-WebUI.AssemblyInfoInputs.cache
+C:\Users\Administrator\Downloads\LAPS-WebUI-1.6.4\src\obj\Debug\net9.0\LAPS-WebUI.AssemblyInfo.cs
+C:\Users\Administrator\Downloads\LAPS-WebUI-1.6.4\src\obj\Debug\net9.0\LAPS-WebUI.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Downloads\LAPS-WebUI-1.6.4\src\obj\Debug\net9.0\LAPS-WebUI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Administrator\Downloads\LAPS-WebUI-1.6.4\src\obj\Debug\net9.0\LAPS-WebUI.RazorAssemblyInfo.cache
+C:\Users\Administrator\Downloads\LAPS-WebUI-1.6.4\src\obj\Debug\net9.0\LAPS-WebUI.RazorAssemblyInfo.cs
